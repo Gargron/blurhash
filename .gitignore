@@ -11,6 +11,7 @@
 *.o
 *.a
 mkmf.log
+/ext/blurhash/Makefile
 
 # rspec failure tracking
 .rspec_status
