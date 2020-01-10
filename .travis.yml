@@ -3,6 +3,10 @@ arch:
   - arm64
   - ppc64le
   - s390x
+addons:
+  apt:
+    packages:
+      - libmagick++-dev
 sudo: false
 language: ruby
 rvm:
