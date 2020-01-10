@@ -23,7 +23,7 @@ module Blurhash
 
   module Unstable
     extend FFI::Library
-    ffi_lib File.join(File.expand_path(__dir__), 'encode.' + RbConfig::CONFIG['DLEXT'])
+    ffi_lib File.join(File.expand_path(File.dirname(__FILE__)), '..', 'ext', 'blurhash', 'encode.' + RbConfig::CONFIG['DLEXT'])
     attach_function :blurHashForPixels, %i(int int int int pointer size_t), :string
   end
 

@@ -9,7 +9,7 @@ task :build => :compile
 
 Rake::ExtensionTask.new("blurhash") do |ext|
   ext.name = "encode"
-  ext.lib_dir = "lib/blurhash"
+  ext.lib_dir = "ext/blurhash"
 end
 
 task :default => [:clobber, :compile, :spec]
