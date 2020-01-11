@@ -1,5 +1,16 @@
+arch:
+  - amd64
+  - arm64
+  - ppc64le
+  - s390x
+addons:
+  apt:
+    packages:
+      - libmagick++-dev
 sudo: false
 language: ruby
 rvm:
+  - 2.7.0
+  - 2.6.5
   - 2.6.1
-before_install: gem install bundler -v 2.0.1
+before_install: gem install bundler -v 2.1.4
