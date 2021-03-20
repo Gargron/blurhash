@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-You need to read in the image pixel data yourself, for example with RMagick:
+To generate the blurhash string from an image file, you need to read in the image pixel data yourself, for example with RMagick:
 
 ```ruby
 require 'blurhash'
@@ -32,6 +32,8 @@ image = Magick::ImageList.new('foo.png')
 
 puts Blurhash.encode(image.columns, image.rows, image.export_pixels)
 ```
+
+To display the visual component once you have the blurhash string, you need another library in JavaScript, Swift, Kotlin and so on. Fore more information, see [the original blurhash repository](https://github.com/woltapp/blurhash).
 
 ## Development
 

@@ -1,6 +1,5 @@
 require "bundler/setup"
 require "blurhash"
-require "rmagick"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

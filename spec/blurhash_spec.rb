@@ -5,8 +5,8 @@ RSpec.describe Blurhash do
 
   describe '.encode' do
     it 'returns a string' do
-      image = Magick::ImageList.new(File.join(__dir__, 'fixtures', 'test.png'))
-      expect(Blurhash.encode(image.columns, image.rows, image.export_pixels)).to eq 'LFE.@D9F01_2%L%MIVD*9Goe-;WB'
+      pixels = File.read(File.join(__dir__, 'fixtures', 'test.bin')).unpack('C*')
+      expect(Blurhash.encode(204, 204, pixels)).to eq 'LFE.@D9F01_2%L%MIVD*9Goe-;WB'
     end
   end
 

@@ -21,11 +21,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.extensions    = ['ext/blurhash/extconf.rb']
 
-  spec.add_dependency 'ffi', '~> 1.12'
+  spec.add_dependency 'ffi', '~> 1.14'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rake-compiler'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rmagick', '~> 3.1.0'
 end
