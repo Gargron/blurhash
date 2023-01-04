@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <math.h>
+#include <ruby.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -134,4 +135,23 @@ static char *encode_int(int value, int length, char *destination) {
 		*destination++ = characters[digit];
 	}
 	return destination;
+}
+
+VALUE rb_blur_hash_for_pixels(VALUE m, VALUE x_comp, VALUE y_comp, VALUE width, VALUE height, VALUE p)
+{
+    const char * buf = blurHashForPixels(NUM2INT(x_comp),
+            NUM2INT(y_comp),
+            NUM2INT(width),
+            NUM2INT(height),
+            (uint8_t *)StringValuePtr(p),
+            NUM2INT(width) * 3);
+
+    return rb_str_new2(buf);
+}
+
+void Init_blurhash_ext()
+{
+    VALUE mBlurhash = rb_define_module("Blurhash");
+    VALUE mUnstable = rb_define_module_under(mBlurhash, "Unstable");
+    rb_define_singleton_method(mUnstable, "blurHashForPixels", rb_blur_hash_for_pixels, 5);
 }
