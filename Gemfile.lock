@@ -1,14 +1,12 @@
 PATH
   remote: .
   specs:
-    blurhash (0.1.5)
-      ffi (~> 1.14)
+    blurhash (0.1.6)
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
-    ffi (1.14.2)
     rake (13.0.3)
     rake-compiler (1.1.1)
       rake
