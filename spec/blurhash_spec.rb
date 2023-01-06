@@ -8,6 +8,11 @@ RSpec.describe Blurhash do
       pixels = File.read(File.join(__dir__, 'fixtures', 'test.bin')).unpack('C*')
       expect(Blurhash.encode(204, 204, pixels)).to eq 'LFE.@D9F01_2%L%MIVD*9Goe-;WB'
     end
+
+    it 'works with ruby implementation' do
+      pixels = File.read(File.join(__dir__, 'fixtures', 'test.bin')).unpack('C*')
+      expect(Blurhash.encode_rb(204, 204, pixels)).to eq 'LFE.@D9F01_2%L%MIVD*9Goe-;WB'
+    end
   end
 
   describe '.components' do
