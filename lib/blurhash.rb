@@ -2,11 +2,16 @@
 
 require 'blurhash/version'
 require 'blurhash_ext'
+require 'blurhash/ruby'
 
 module Blurhash
   def self.encode(width, height, pixels, x_comp: 4, y_comp: 3)
     p = pixels.pack("C#{pixels.size}")
     return Unstable.blurHashForPixels(x_comp, y_comp, width, height, p)
+  end
+
+  def self.encode_rb(width, height, pixels, x_comp: 4, y_comp: 3)
+    Ruby.blurHashForPixels(x_comp, y_comp, width, height, pixels, width * 3)
   end
 
   def self.components(str)
