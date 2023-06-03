@@ -10,6 +10,18 @@ RSpec.describe Blurhash do
     end
   end
 
+  describe ".decode" do
+    it "raise ArgumentError if blurhash is less than 6 characters long" do
+      expect { Blurhash.decode("abcde", 204, 204) }.to raise_error(ArgumentError)
+    end
+
+    it "returns an array with depth: 3" do
+      pixels = Blurhash.decode("LFE.@D9F01_2%L%MIVD*9Goe-;WB", 204, 204)
+      expect(pixels).to be_an_instance_of(Array)
+      expect(pixels[0][0][0]).not_to be_an_instance_of(Array)
+    end
+  end
+
   describe '.components' do
     it 'returns an array' do
       expect(Blurhash.components('LFE.@D9F01_2%L%MIVD*9Goe-;WB')).to eq [4, 3]
