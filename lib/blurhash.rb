@@ -5,6 +5,8 @@ require 'blurhash_ext'
 
 module Blurhash
   def self.encode(width, height, pixels, x_comp: 4, y_comp: 3)
+    raise 'Pixels array has wrong size' if pixels.size != width * height * 3
+
     p = pixels.pack("C#{pixels.size}")
     return Unstable.blurHashForPixels(x_comp, y_comp, width, height, p)
   end
