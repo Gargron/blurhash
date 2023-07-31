@@ -30,7 +30,11 @@ require 'rmagick'
 
 image = Magick::ImageList.new('foo.png')
 
-puts Blurhash.encode(image.columns, image.rows, image.export_pixels)
+blurhash = Blurhash.encode(image.columns, image.rows, image.export_pixels)
+puts blurhash
+
+pixels = Blurhash.decode(blurhash, image.columns, image.rows)
+# pixels can be converted to image with gem minimagick
 ```
 
 To display the visual component once you have the blurhash string, you need another library in JavaScript, Swift, Kotlin and so on. Fore more information, see [the original blurhash repository](https://github.com/woltapp/blurhash).
